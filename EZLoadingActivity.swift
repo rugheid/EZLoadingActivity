@@ -63,7 +63,8 @@ public struct EZLoadingActivity {
                     overlay = UIView(frame: UIApplication.shared.keyWindow!.frame)
                 }
                 overlay.backgroundColor = UIColor.black.withAlphaComponent(0)
-                topMostController?.view.addSubview(overlay)
+//                topMostController?.view.addSubview(overlay)
+                UIApplication.shared.windows.first?.addSubview(overlay)
                 UIView.animate(withDuration: 0.2, animations: {overlay.backgroundColor = overlay.backgroundColor?.withAlphaComponent(0.5)})
             }
             instance?.showLoadingActivity()
@@ -170,7 +171,8 @@ public struct EZLoadingActivity {
             addSubview(activityView)
             addSubview(textLabel)
             
-            topMostController!.view.addSubview(self)
+//            topMostController!.view.addSubview(self)
+            UIApplication.shared.windows.first?.addSubview(self)
         }
         
         func showLoadingWithController(_ controller:UIViewController){
